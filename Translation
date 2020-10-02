@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+path=r'https://s.yimg.com/ny/api/res/1.2/sGMcJfaFINp3dG9yk97d4Q--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NzY4O2g9NTEy/https://media.zenfs.com/en/afp.com/5b20db790d3b4f3129ecaf000f0574a6'
+img = cv2.imread(path,0)
+rows,cols = img.shape
+
+M = np.float32([[1,0,100],[0,1,50]])
+dst = cv2.warpAffine(img,M,(cols,rows))
+
+cv2.imshow('img',dst)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
